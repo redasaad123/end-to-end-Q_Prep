@@ -1,0 +1,12 @@
+---
+# install Python
+- name: Install Python 3.10 and set as default
+  import_tasks: templatesTasks/install-Python.yml
+
+
+# install Docker 
+- name: Install Docker on VM
+  import_tasks: templatesTasks/Docker.yml
+
+
+

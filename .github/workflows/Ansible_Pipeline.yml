@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Ansible Pipeline
+on:
+  repository_dispatch:
+    types: [terraform-completed]
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: 'Server IP'
+        required: true
+        default: string
+
+    
+jobs:
+  ansible:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: get server IP
+        id: get_ip
+        run: |
+          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            echo "Server IP: ${{ github.event.client_payload.server_ip }}"
+            echo "server_ip=${{ github.event.client_payload.server_ip }}" >> $GITHUB_OUTPUT
+          else
+            echo "Using input server IP: ${{ github.event.inputs.trigger }}"
+            echo "server_ip=${{ github.event.inputs.trigger }}" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Install Ansible
+        run: |
+          sudo apt update
+          sudo apt install -y ansible
+
+      - name: Wait for SSH
+        run: |
+          until ssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 -q ubuntu@${{ steps.get_ip.outputs.server_ip }} exit; do
+            echo "Waiting for SSH to be available..."
+            sleep 5
+          done
+
+      - name: Create Ansible Inventory
+        run: |
+          cat > ./Ansible/inventory.ini << EOF
+          [webservers]
+          server ansible_host=${{ steps.get_ip.outputs.server_ip }} ansible_user=adminuser ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3
+          EOF
+          cat ./Ansible/inventory.ini
+          echo "📝 Inventory created"
+
+      - name: Run Ansible Playbook
+        run: |
+          ansible-playbook -i ./Ansible/inventory.ini ./Ansible/playbook.yml
+
+      - name: Test Connection
+        run: |
+          ansible -i ./Ansible/inventory.ini webservers -m ping
+
+      - name: Configuration Complete
+        run: |
+          echo "🎉 ========================================="
+          echo "✅ Server configured successfully!"
+          echo "🌐 Server IP: ${{ steps.get_ip.outputs.server_ip }}"
+          echo "🔗 Access: http://${{ steps.get_ip.outputs.server_ip }}"
+          echo "=========================================="
+
+
+      

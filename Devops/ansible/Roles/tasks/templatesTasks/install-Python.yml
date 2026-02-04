@@ -1,0 +1,47 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for Roles
+- name: Gather facts
+  ansible.builtin.setup:
+
+- name: Enable universe repository
+  ansible.builtin.apt_repository:
+    repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }} universe"
+    state: present
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install Python 3.10 packages
+  ansible.builtin.apt:
+    name:
+      - python3.10
+      - python3.10-venv
+      - python3.10-distutils
+      - python3.10-dev
+    state: present
+    install_recommends: yes
+
+- name: Ensure python3 points to python3.10
+  ansible.builtin.command: update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
+  args:
+    creates: /usr/bin/python3
+
+- name: Verify Python version
+  ansible.builtin.command: python3 --version
+  register: python_version
+
+- name: Show installed Python version
+  ansible.builtin.debug:
+    msg: "Installed Python version is {{ python_version.stdout }}"
+
+
+- name: Update and upgrade apt packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+  tags: update
+
+
+

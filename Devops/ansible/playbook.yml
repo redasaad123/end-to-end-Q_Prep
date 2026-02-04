@@ -1,0 +1,5 @@
+- name: Server Configuration
+  hosts: ubuntu
+  become: yes
+  roles:
+    - Roles

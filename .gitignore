@@ -1,4 +1,14 @@
 *.tfvars
 *.tfstate
 *.tfstate.backup
+# Visual Studio files
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.vshost.*
 
+# Tooling
+.vscode/
+.idea/

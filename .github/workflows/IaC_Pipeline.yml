@@ -38,9 +38,8 @@ jobs:
 
       - name: Remove .terraform directory
         run: |
-          rm -rf .terraform
-          rm -rf .terraform.lock.hcl
-        working-directory: ./Terraform
+          rm -rf ./Terraform/.terraform
+          rm -rf ./Terraform/.terraform.lock.hcl
 
       - name: Initialize Terraform
         run: terraform init

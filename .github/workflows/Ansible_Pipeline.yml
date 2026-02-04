@@ -60,20 +60,20 @@ jobs:
 
       - name: Create Ansible Inventory
         run: |
-          cat > ./Ansible/inventory.ini << EOF
+          cat > ./Devops/ansible/inventory.ini << EOF
           [webservers]
           server ansible_host=${{ steps.get_ip.outputs.server_ip }} ansible_user=adminuser ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3
           EOF
-          cat ./Ansible/inventory.ini
+          cat ./Devops/ansible/inventory.ini
           echo "📝 Inventory created"
 
       - name: Run Ansible Playbook
         run: |
-          ansible-playbook -i ./Ansible/inventory.ini ./Ansible/playbook.yml
+          ansible-playbook -i ./Devops/ansible/inventory.ini ./Devops/ansible/playbook.yml
 
       - name: Test Connection
         run: |
-          ansible -i ./Ansible/inventory.ini webservers -m ping
+          ansible -i ./Devops/ansible/inventory.ini webservers -m ping
 
       - name: Configuration Complete
         run: |

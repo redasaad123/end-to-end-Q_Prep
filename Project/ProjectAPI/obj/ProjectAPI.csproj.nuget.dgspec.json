@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\ProjectAPI.csproj": {}
+    "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\ProjectAPI.csproj": {}
   },
   "projects": {
-    "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj": {
+    "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj",
+        "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Reda Saad\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects Of C#\\Q-Prep\\Core\\obj\\",
+        "outputPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -84,14 +84,14 @@
         }
       }
     },
-    "D:\\Projects Of C#\\Q-Prep\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects Of C#\\Q-Prep\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\Projects Of C#\\Q-Prep\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Reda Saad\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects Of C#\\Q-Prep\\Infrastructure\\obj\\",
+        "outputPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -113,8 +113,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj": {
-                "projectPath": "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj"
+              "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj": {
+                "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj"
               }
             }
           }
@@ -170,14 +170,14 @@
         }
       }
     },
-    "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\ProjectAPI.csproj": {
+    "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\ProjectAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\ProjectAPI.csproj",
+        "projectUniqueName": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\ProjectAPI.csproj",
         "projectName": "ProjectAPI",
-        "projectPath": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\ProjectAPI.csproj",
+        "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\ProjectAPI.csproj",
         "packagesPath": "C:\\Users\\Reda Saad\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\obj\\",
+        "outputPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -199,11 +199,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj": {
-                "projectPath": "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj"
+              "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj": {
+                "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj"
               },
-              "D:\\Projects Of C#\\Q-Prep\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "D:\\Projects Of C#\\Q-Prep\\Infrastructure\\Infrastructure.csproj"
+              "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }

@@ -11,3 +11,16 @@ D:\Projects Of C#\Q-Prep\Core\obj\Debug\net8.0\Core.dll
 D:\Projects Of C#\Q-Prep\Core\obj\Debug\net8.0\refint\Core.dll
 D:\Projects Of C#\Q-Prep\Core\obj\Debug\net8.0\Core.pdb
 D:\Projects Of C#\Q-Prep\Core\obj\Debug\net8.0\ref\Core.dll
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\bin\Debug\net8.0\Core.deps.json
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\bin\Debug\net8.0\Core.dll
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\bin\Debug\net8.0\Core.pdb
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.csproj.AssemblyReference.cache
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.AssemblyInfoInputs.cache
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.AssemblyInfo.cs
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.csproj.CoreCompileInputs.cache
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.sourcelink.json
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.dll
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\refint\Core.dll
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\Core.pdb
+D:\Projects DevOps\Projects\Q_Prep\Project\Core\obj\Debug\net8.0\ref\Core.dll

@@ -1346,11 +1346,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj",
+      "projectUniqueName": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj",
+      "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\Reda Saad\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects Of C#\\Q-Prep\\Core\\obj\\",
+      "outputPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

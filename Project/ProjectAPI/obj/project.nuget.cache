@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tymNHa5l8JQ=",
+  "dgSpecHash": "bETdVuhg6QA=",
   "success": true,
-  "projectFilePath": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\ProjectAPI.csproj",
+  "projectFilePath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\ProjectAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Reda Saad\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\Reda Saad\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -137,9 +137,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'SixLabors.ImageSharp' 3.1.7 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-rxmq-m78w-7wmc",
-      "projectPath": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\ProjectAPI.csproj",
+      "projectPath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\ProjectAPI.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\ProjectAPI.csproj",
+      "filePath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\ProjectAPI\\ProjectAPI.csproj",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
         "net8.0"

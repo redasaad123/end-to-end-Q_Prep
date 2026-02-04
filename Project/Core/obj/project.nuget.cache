@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SklSJQ8lGr8=",
+  "dgSpecHash": "VzqoF9EKkOs=",
   "success": true,
-  "projectFilePath": "D:\\Projects Of C#\\Q-Prep\\Core\\Core.csproj",
+  "projectFilePath": "D:\\Projects DevOps\\Projects\\Q_Prep\\Project\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Reda Saad\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.0\\microsoft.aspnetcore.cryptography.internal.8.0.0.nupkg.sha512",
     "C:\\Users\\Reda Saad\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.0\\microsoft.aspnetcore.cryptography.keyderivation.8.0.0.nupkg.sha512",

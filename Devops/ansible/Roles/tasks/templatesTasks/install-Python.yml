@@ -4,6 +4,12 @@
 - name: Gather facts
   ansible.builtin.setup:
 
+- name: Clean up malformed Kubernetes repository file
+  ansible.builtin.file:
+    path: /etc/apt/sources.list.d/kubernetes.list
+    state: absent
+  ignore_errors: yes
+
 - name: Enable universe repository
   ansible.builtin.apt_repository:
     repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_facts.lsb.codename }} universe"

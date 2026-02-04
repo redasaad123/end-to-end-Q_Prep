@@ -43,7 +43,7 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: ./Terraform
+        working-directory: Terraform
 
       
       - name: setup ssh

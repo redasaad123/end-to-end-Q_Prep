@@ -1,0 +1,7 @@
+wwwroot\GroupsPhoto\12d43941a46441cd9780936d1f0fee11.jpg
+wwwroot\htmlpage.html
+wwwroot\JavaScript.js
+wwwroot\PostPhotos\4bc011b9161fb6544cfef43b0b5ee421.jpg
+wwwroot\ProfilePhoto\user-blue-gradient_78370-4692.jpg
+wwwroot\TrackandFrameworkPhoto\69c3c85f8aca980abdcfb79fe815dfbb.png
+wwwroot\TrackandFrameworkPhoto\dark-landscape-mist-moon-wallpaper-preview.jpg

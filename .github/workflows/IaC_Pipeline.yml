@@ -1,0 +1,103 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: IaC Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Terraform/**'
+      - '.github/workflows/IaC_Pipeline.yml'
+  workflow_dispatch:
+
+
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    env:
+      TF_IN_AUTOMATION: true
+      ARM_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+      ARM_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+
+      TF_VAR_public_key: ${{ secrets.PUBLIC_KEY }}
+      TF_VAR_access_key: ${{ secrets.ACCESS_KEY }}
+      TF_VAR_secret_key: ${{ secrets.SECRET_KEY }}
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.5.6
+          terraform_wrapper: false
+
+      - name: Remove .terraform directory
+        run: |
+          rm -rf .terraform
+          rm -rf .terraform.lock.hcl
+        working-directory: ./Terraform
+
+      - name: Initialize Terraform
+        run: terraform init
+        working-directory: ./Terraform
+
+      
+      - name: setup ssh
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
+          echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H example.com >> ~/.ssh/known_hosts
+        working-directory: ./Terraform
+
+      - name: Validate Terraform configuration
+        run: terraform validate
+        working-directory: ./Terraform
+
+      
+      - name: Plan Terraform changes
+        run: terraform plan -out=tfplan
+        working-directory: ./Terraform
+
+      - name: Apply Terraform changes
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve tfplan
+        working-directory: ./Terraform
+
+      - name: get terraform output
+        id: get_ip
+        working-directory: ./Terraform
+        run: |
+            echo "📋 Checking available outputs..."
+            terraform output
+            PUBLIC_IP=$(terraform output -raw public_ip)
+            echo "public_ip=$PUBLIC_IP" >> $GITHUB_OUTPUT
+            echo "✅ Public IP is: $PUBLIC_IP"
+
+      - name: save output to file
+        run: |
+            mkdir -p ./output
+            echo "${{ steps.get_ip.outputs.public_ip }}" > ./output/public_ip.txt
+
+      - name: Upload Public IP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public_ip
+          path: ./output/public_ip.txt
+
+      - name: Trigger Ansible Workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          event-type: terraform-completed
+          client-payload: '{"public_ip": "${{ steps.get_ip.outputs.public_ip }}"}'
+          repository: redasaad123/end-to-end-Q_Prep
+
+
+    

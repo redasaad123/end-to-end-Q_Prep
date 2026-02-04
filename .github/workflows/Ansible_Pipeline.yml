@@ -35,12 +35,28 @@ jobs:
           sudo apt update
           sudo apt install -y ansible
 
-      - name: Wait for SSH
+      - name: Setup SSH Key
         run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ steps.get_ip.outputs.server_ip }} >> ~/.ssh/known_hosts
+
+      - name: Wait for SSH
+        timeout-minutes: 5
+        run: |
+          MAX_RETRIES=60
+          RETRY_COUNT=0
           until ssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 -q ubuntu@${{ steps.get_ip.outputs.server_ip }} exit; do
             echo "Waiting for SSH to be available..."
             sleep 5
+            RETRY_COUNT=$((RETRY_COUNT + 1))
+            if [ $RETRY_COUNT -ge $MAX_RETRIES ]; then
+              echo "❌ SSH connection timeout after $((MAX_RETRIES * 5)) seconds"
+              exit 1
+            fi
           done
+          echo "✅ SSH connection established"
 
       - name: Create Ansible Inventory
         run: |

@@ -13,20 +13,18 @@
   ansible.builtin.apt:
     update_cache: yes
 
-- name: Install Python 3.10 packages
+- name: Install Python 3 and dependencies
   ansible.builtin.apt:
     name:
-      - python3.10
-      - python3.10-venv
-      - python3.10-distutils
-      - python3.10-dev
+      - python3
+      - python3-venv
+      - python3-pip
+      - python3-dev
     state: present
     install_recommends: yes
 
-- name: Ensure python3 points to python3.10
-  ansible.builtin.command: update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
-  args:
-    creates: /usr/bin/python3
+- name: Ensure python3 is available
+  ansible.builtin.command: python3 --version
 
 - name: Verify Python version
   ansible.builtin.command: python3 --version

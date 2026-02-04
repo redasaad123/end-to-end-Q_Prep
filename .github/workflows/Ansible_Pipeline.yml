@@ -9,7 +9,7 @@ on:
       trigger:
         description: 'Server IP'
         required: true
-        default: string
+        default: ""
 
     
 jobs:

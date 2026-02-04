@@ -82,7 +82,6 @@
     containerd config default > /etc/containerd/config.toml
     sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
   become: yes
-  notify: restart containerd
 
 - name: Restart containerd
   systemd:

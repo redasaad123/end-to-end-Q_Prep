@@ -8,5 +8,9 @@
 - name: Install Docker on VM
   import_tasks: templatesTasks/Docker.yml
 
+# install Kubernetes components
+- name: Install Kubernetes components on VM
+  import_tasks: templatesTasks/K8s.yml
+
 
 

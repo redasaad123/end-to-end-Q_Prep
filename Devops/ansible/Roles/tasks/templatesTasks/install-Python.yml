@@ -6,7 +6,7 @@
 
 - name: Enable universe repository
   ansible.builtin.apt_repository:
-    repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }} universe"
+    repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_facts.lsb.codename }} universe"
     state: present
 
 - name: Update apt cache

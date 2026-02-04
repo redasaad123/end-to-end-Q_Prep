@@ -1,0 +1,743 @@
+{
+  "Version": 1,
+  "Hash": "qPMcPU/JULko5o8S6LZMYjlzuwsoUNV1Jz/2Fzqc3As=",
+  "Source": "ProjectAPI",
+  "BasePath": "_content/ProjectAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProjectAPI\\wwwroot",
+      "Source": "ProjectAPI",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\GroupsPhoto\\12d43941a46441cd9780936d1f0fee11.jpg",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "GroupsPhoto/12d43941a46441cd9780936d1f0fee11#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vecn3ia992",
+      "Integrity": "aRYrwPTLV9r1TJUcvJBFgKwzj+zPmVLg8tLLjsVXtJI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\GroupsPhoto\\12d43941a46441cd9780936d1f0fee11.jpg"
+    },
+    {
+      "Identity": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\htmlpage.html",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "htmlpage#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "k12pszdsri",
+      "Integrity": "mK75k2707tV0VdwwaMUMeqkwWaP+FhR+froiFqKPL4k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\htmlpage.html"
+    },
+    {
+      "Identity": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\JavaScript.js",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "JavaScript#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wzoejixd60",
+      "Integrity": "9L5+72aL+l2eIRxKgKE838bRN9Gm0vcTApwoqpg5+4c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JavaScript.js"
+    },
+    {
+      "Identity": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\PostPhotos\\4bc011b9161fb6544cfef43b0b5ee421.jpg",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "PostPhotos/4bc011b9161fb6544cfef43b0b5ee421#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mwkqz9aqpx",
+      "Integrity": "qiyGTc5Mex3Xpb/HtkNnlGFxk5NUrl/5oxhO4Tgu8Wc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PostPhotos\\4bc011b9161fb6544cfef43b0b5ee421.jpg"
+    },
+    {
+      "Identity": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\ProfilePhoto\\user-blue-gradient_78370-4692.jpg",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "ProfilePhoto/user-blue-gradient_78370-4692#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r8vkn1sy9v",
+      "Integrity": "1cmZ9zV63QeAeW2mNrTM24CfdzL/9ATrNtr4hDm03/I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfilePhoto\\user-blue-gradient_78370-4692.jpg"
+    },
+    {
+      "Identity": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\69c3c85f8aca980abdcfb79fe815dfbb.png",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "TrackandFrameworkPhoto/69c3c85f8aca980abdcfb79fe815dfbb#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xv0097vvfd",
+      "Integrity": "gyb/RW/2CjXDTs1WM3L1/8JBT0SLxwn8BX8C3bVX8HA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\TrackandFrameworkPhoto\\69c3c85f8aca980abdcfb79fe815dfbb.png"
+    },
+    {
+      "Identity": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\dark-landscape-mist-moon-wallpaper-preview.jpg",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "TrackandFrameworkPhoto/dark-landscape-mist-moon-wallpaper-preview#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tzvnysgpps",
+      "Integrity": "R2zfGDt/4iOPYHC5HDM5wrpSsc9WVxmA3q7fF277J30=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\TrackandFrameworkPhoto\\dark-landscape-mist-moon-wallpaper-preview.jpg"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "GroupsPhoto/12d43941a46441cd9780936d1f0fee11.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\GroupsPhoto\\12d43941a46441cd9780936d1f0fee11.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24005"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aRYrwPTLV9r1TJUcvJBFgKwzj+zPmVLg8tLLjsVXtJI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 01:19:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aRYrwPTLV9r1TJUcvJBFgKwzj+zPmVLg8tLLjsVXtJI="
+        }
+      ]
+    },
+    {
+      "Route": "GroupsPhoto/12d43941a46441cd9780936d1f0fee11.vecn3ia992.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\GroupsPhoto\\12d43941a46441cd9780936d1f0fee11.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24005"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aRYrwPTLV9r1TJUcvJBFgKwzj+zPmVLg8tLLjsVXtJI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 01:19:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vecn3ia992"
+        },
+        {
+          "Name": "label",
+          "Value": "GroupsPhoto/12d43941a46441cd9780936d1f0fee11.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aRYrwPTLV9r1TJUcvJBFgKwzj+zPmVLg8tLLjsVXtJI="
+        }
+      ]
+    },
+    {
+      "Route": "htmlpage.html",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\htmlpage.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "511"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mK75k2707tV0VdwwaMUMeqkwWaP+FhR+froiFqKPL4k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 23:05:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mK75k2707tV0VdwwaMUMeqkwWaP+FhR+froiFqKPL4k="
+        }
+      ]
+    },
+    {
+      "Route": "htmlpage.k12pszdsri.html",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\htmlpage.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "511"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mK75k2707tV0VdwwaMUMeqkwWaP+FhR+froiFqKPL4k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 23:05:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k12pszdsri"
+        },
+        {
+          "Name": "label",
+          "Value": "htmlpage.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mK75k2707tV0VdwwaMUMeqkwWaP+FhR+froiFqKPL4k="
+        }
+      ]
+    },
+    {
+      "Route": "JavaScript.js",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\JavaScript.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3001"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9L5+72aL+l2eIRxKgKE838bRN9Gm0vcTApwoqpg5+4c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 23:05:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9L5+72aL+l2eIRxKgKE838bRN9Gm0vcTApwoqpg5+4c="
+        }
+      ]
+    },
+    {
+      "Route": "JavaScript.wzoejixd60.js",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\JavaScript.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3001"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9L5+72aL+l2eIRxKgKE838bRN9Gm0vcTApwoqpg5+4c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 23:05:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wzoejixd60"
+        },
+        {
+          "Name": "label",
+          "Value": "JavaScript.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9L5+72aL+l2eIRxKgKE838bRN9Gm0vcTApwoqpg5+4c="
+        }
+      ]
+    },
+    {
+      "Route": "PostPhotos/4bc011b9161fb6544cfef43b0b5ee421.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\PostPhotos\\4bc011b9161fb6544cfef43b0b5ee421.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20520"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qiyGTc5Mex3Xpb/HtkNnlGFxk5NUrl/5oxhO4Tgu8Wc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 01:19:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qiyGTc5Mex3Xpb/HtkNnlGFxk5NUrl/5oxhO4Tgu8Wc="
+        }
+      ]
+    },
+    {
+      "Route": "PostPhotos/4bc011b9161fb6544cfef43b0b5ee421.mwkqz9aqpx.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\PostPhotos\\4bc011b9161fb6544cfef43b0b5ee421.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20520"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qiyGTc5Mex3Xpb/HtkNnlGFxk5NUrl/5oxhO4Tgu8Wc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 01:19:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mwkqz9aqpx"
+        },
+        {
+          "Name": "label",
+          "Value": "PostPhotos/4bc011b9161fb6544cfef43b0b5ee421.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qiyGTc5Mex3Xpb/HtkNnlGFxk5NUrl/5oxhO4Tgu8Wc="
+        }
+      ]
+    },
+    {
+      "Route": "ProfilePhoto/user-blue-gradient_78370-4692.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\ProfilePhoto\\user-blue-gradient_78370-4692.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16182"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1cmZ9zV63QeAeW2mNrTM24CfdzL/9ATrNtr4hDm03/I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Sep 2024 13:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1cmZ9zV63QeAeW2mNrTM24CfdzL/9ATrNtr4hDm03/I="
+        }
+      ]
+    },
+    {
+      "Route": "ProfilePhoto/user-blue-gradient_78370-4692.r8vkn1sy9v.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\ProfilePhoto\\user-blue-gradient_78370-4692.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16182"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1cmZ9zV63QeAeW2mNrTM24CfdzL/9ATrNtr4hDm03/I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Sep 2024 13:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r8vkn1sy9v"
+        },
+        {
+          "Name": "label",
+          "Value": "ProfilePhoto/user-blue-gradient_78370-4692.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1cmZ9zV63QeAeW2mNrTM24CfdzL/9ATrNtr4hDm03/I="
+        }
+      ]
+    },
+    {
+      "Route": "TrackandFrameworkPhoto/69c3c85f8aca980abdcfb79fe815dfbb.png",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\69c3c85f8aca980abdcfb79fe815dfbb.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33918"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gyb/RW/2CjXDTs1WM3L1/8JBT0SLxwn8BX8C3bVX8HA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 12:00:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gyb/RW/2CjXDTs1WM3L1/8JBT0SLxwn8BX8C3bVX8HA="
+        }
+      ]
+    },
+    {
+      "Route": "TrackandFrameworkPhoto/69c3c85f8aca980abdcfb79fe815dfbb.xv0097vvfd.png",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\69c3c85f8aca980abdcfb79fe815dfbb.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33918"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gyb/RW/2CjXDTs1WM3L1/8JBT0SLxwn8BX8C3bVX8HA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 12:00:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xv0097vvfd"
+        },
+        {
+          "Name": "label",
+          "Value": "TrackandFrameworkPhoto/69c3c85f8aca980abdcfb79fe815dfbb.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gyb/RW/2CjXDTs1WM3L1/8JBT0SLxwn8BX8C3bVX8HA="
+        }
+      ]
+    },
+    {
+      "Route": "TrackandFrameworkPhoto/dark-landscape-mist-moon-wallpaper-preview.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\dark-landscape-mist-moon-wallpaper-preview.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13238"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"R2zfGDt/4iOPYHC5HDM5wrpSsc9WVxmA3q7fF277J30=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 02 May 2025 00:49:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-R2zfGDt/4iOPYHC5HDM5wrpSsc9WVxmA3q7fF277J30="
+        }
+      ]
+    },
+    {
+      "Route": "TrackandFrameworkPhoto/dark-landscape-mist-moon-wallpaper-preview.tzvnysgpps.jpg",
+      "AssetFile": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\dark-landscape-mist-moon-wallpaper-preview.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13238"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"R2zfGDt/4iOPYHC5HDM5wrpSsc9WVxmA3q7fF277J30=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 02 May 2025 00:49:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tzvnysgpps"
+        },
+        {
+          "Name": "label",
+          "Value": "TrackandFrameworkPhoto/dark-landscape-mist-moon-wallpaper-preview.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-R2zfGDt/4iOPYHC5HDM5wrpSsc9WVxmA3q7fF277J30="
+        }
+      ]
+    }
+  ]
+}

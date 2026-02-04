@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\GroupsPhoto\\12d43941a46441cd9780936d1f0fee11.jpg",
+      "PackagePath": "staticwebassets\\GroupsPhoto\\12d43941a46441cd9780936d1f0fee11.jpg"
+    },
+    {
+      "Id": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\JavaScript.js",
+      "PackagePath": "staticwebassets\\JavaScript.js"
+    },
+    {
+      "Id": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\PostPhotos\\4bc011b9161fb6544cfef43b0b5ee421.jpg",
+      "PackagePath": "staticwebassets\\PostPhotos\\4bc011b9161fb6544cfef43b0b5ee421.jpg"
+    },
+    {
+      "Id": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\ProfilePhoto\\user-blue-gradient_78370-4692.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhoto\\user-blue-gradient_78370-4692.jpg"
+    },
+    {
+      "Id": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\69c3c85f8aca980abdcfb79fe815dfbb.png",
+      "PackagePath": "staticwebassets\\TrackandFrameworkPhoto\\69c3c85f8aca980abdcfb79fe815dfbb.png"
+    },
+    {
+      "Id": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\TrackandFrameworkPhoto\\dark-landscape-mist-moon-wallpaper-preview.jpg",
+      "PackagePath": "staticwebassets\\TrackandFrameworkPhoto\\dark-landscape-mist-moon-wallpaper-preview.jpg"
+    },
+    {
+      "Id": "D:\\Projects Of C#\\Q-Prep\\ProjectAPI\\wwwroot\\htmlpage.html",
+      "PackagePath": "staticwebassets\\htmlpage.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProjectAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProjectAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ProjectAPI.props",
+      "PackagePath": "build\\ProjectAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ProjectAPI.props",
+      "PackagePath": "buildMultiTargeting\\ProjectAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ProjectAPI.props",
+      "PackagePath": "buildTransitive\\ProjectAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - 'Terraform/**'
+      - 'Devops/Terraform/**'
       - '.github/workflows/IaC_Pipeline.yml'
   workflow_dispatch:
 
@@ -38,12 +38,12 @@ jobs:
 
       - name: Remove .terraform directory
         run: |
-          rm -rf ./Terraform/.terraform
-          rm -rf ./Terraform/.terraform.lock.hcl
+          rm -rf ./Devops/Terraform/.terraform
+          rm -rf ./Devops/Terraform/.terraform.lock.hcl
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: Terraform
+        working-directory: Devops/Terraform
 
       
       - name: setup ssh
@@ -53,25 +53,25 @@ jobs:
           echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H example.com >> ~/.ssh/known_hosts
-        working-directory: ./Terraform
+        working-directory: ./Devops/Terraform
 
       - name: Validate Terraform configuration
         run: terraform validate
-        working-directory: ./Terraform
+        working-directory: ./Devops/Terraform
 
       
       - name: Plan Terraform changes
         run: terraform plan -out=tfplan
-        working-directory: ./Terraform
+        working-directory: ./Devops/Terraform
 
       - name: Apply Terraform changes
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
-        working-directory: ./Terraform
+        working-directory: ./Devops/Terraform
 
       - name: get terraform output
         id: get_ip
-        working-directory: ./Terraform
+        working-directory: ./Devops/Terraform
         run: |
             echo "📋 Checking available outputs..."
             terraform output

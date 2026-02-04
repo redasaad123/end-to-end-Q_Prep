@@ -1,6 +1,77 @@
----
-# ---------------- System Prep ----------------
+# ---
+# # ---------------- System Prep ----------------
 
+# - name: Disable swap
+#   shell: |
+#     swapoff -a
+#     sed -i '/ swap / s/^/#/' /etc/fstab
+
+# - name: Load kernel modules
+#   modprobe:
+#     name: "{{ item }}"
+#     state: present
+#   loop:
+#     - overlay
+#     - br_netfilter
+
+# - name: Set sysctl params for Kubernetes
+#   copy:
+#     dest: /etc/sysctl.d/k8s.conf
+#     content: |
+#       net.bridge.bridge-nf-call-iptables  = 1
+#       net.bridge.bridge-nf-call-ip6tables = 1
+#       net.ipv4.ip_forward                 = 1
+
+# - name: Apply sysctl params
+#   command: sysctl --system
+
+# # ---------------- Kubernetes ----------------
+
+# # 1. التأكد من المجلد
+# - name: Ensure keyrings directory exists
+#   file:
+#     path: /etc/apt/keyrings
+#     state: directory
+#     mode: '0755'
+
+# # 2. تحميل المفتاح
+# - name: Download Kubernetes GPG key
+#   get_url:
+#     url: https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key
+#     dest: /tmp/kubernetes-release.key
+#     mode: '0644'
+
+# # 3. تحويل المفتاح (مع Force لتجنب التعليق)
+# - name: De-armor GPG key
+#   command: gpg --dearmor -f -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg /tmp/kubernetes-release.key
+#   args:
+#     creates: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+# # 4. إضافة المستودع (بدون تحديث الكاش هنا)
+# - name: Add Kubernetes repo
+#   copy:
+#     dest: /etc/apt/sources.list.d/kubernetes.list
+#     content: |
+#       deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /
+
+# # 5. التحديث النهائي وتثبيت الأدوات
+# - name: Install Kubernetes components
+#   apt:
+#     name: [kubelet, kubeadm, kubectl]
+#     state: present
+#     update_cache: yes  # التحديث هنا لمرة واحدة فقط
+
+# - name: Hold Kubernetes packages
+#   command: apt-mark hold kubelet kubeadm kubectl
+
+# - name: Enable kubelet
+#   systemd:
+#     name: kubelet
+#     enabled: yes
+
+
+
+# ---------------- System Prep ----------------
 - name: Disable swap
   shell: |
     swapoff -a
@@ -25,41 +96,35 @@
 - name: Apply sysctl params
   command: sysctl --system
 
-# ---------------- Kubernetes ----------------
-
-# 1. التأكد من المجلد
+# ---------------- Kubernetes Components ----------------
 - name: Ensure keyrings directory exists
   file:
     path: /etc/apt/keyrings
     state: directory
     mode: '0755'
 
-# 2. تحميل المفتاح
 - name: Download Kubernetes GPG key
   get_url:
     url: https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key
     dest: /tmp/kubernetes-release.key
     mode: '0644'
 
-# 3. تحويل المفتاح (مع Force لتجنب التعليق)
 - name: De-armor GPG key
   command: gpg --dearmor -f -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg /tmp/kubernetes-release.key
   args:
     creates: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
-# 4. إضافة المستودع (بدون تحديث الكاش هنا)
 - name: Add Kubernetes repo
   copy:
     dest: /etc/apt/sources.list.d/kubernetes.list
     content: |
       deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /
 
-# 5. التحديث النهائي وتثبيت الأدوات
 - name: Install Kubernetes components
   apt:
     name: [kubelet, kubeadm, kubectl]
     state: present
-    update_cache: yes  # التحديث هنا لمرة واحدة فقط
+    update_cache: yes
 
 - name: Hold Kubernetes packages
   command: apt-mark hold kubelet kubeadm kubectl

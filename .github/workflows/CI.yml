@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Ansible Pipeline
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Projects/**'
+      - '.github/workflows/CI.yml'
+  workflow_dispatch:
+        
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore dependencies
+        run: dotnet restore Q-Prep.sln
+
+      - name: OWASP Dependency Check
+        uses: dependency-check/owasp-dependency-check-action@main
+        with:
+          project: 'Q-Prep'
+          scan: './**/*.csproj'
+          format: 'XML'
+          outputDirectory: 'dependency-check-report'
+
+      - name: Publish OWASP Dependency Check report
+        uses: actions/upload-artifact@v3
+        with:
+          name: owasp-dependency-check-report
+          path: dependency-check-report/
+      
+      - name: Build
+        run: dotnet build Q-Prep.sln --configuration Release --no-restore
+
+      - name: SonarQube Analysis
+        uses: sonarsource/sonarcloud-github-action@main
+        with:
+          args: >
+            -Dsonar.projectKey=Q-Prep
+            -Dsonar.organization=soneratech
+            -Dsonar.sources='./**/*.csproj'
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.dependencyCheck.xmlReportPath=dependency-check-report/dependency-check-report.xml
+      
+
+
+      
+    
+
+

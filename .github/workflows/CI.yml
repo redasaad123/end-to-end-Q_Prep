@@ -1,27 +1,25 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 
-name:  CI Pipeline
+name: CI Pipeline
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'Projects/**'
-      - '.github/workflows/CI.yml'
+    branches: [ "main" ]
   workflow_dispatch:
-        
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # رجعناه لجهازك يا وحش
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # مهم جداً لسونار عشان يشوف تاريخ الكود
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-      
+
       - name: Restore dependencies
         run: dotnet restore ./Project/Q-Prep.sln
 
@@ -31,34 +29,29 @@ jobs:
           project: 'Q-Prep'
           path: './Project'
           format: 'XML'
+          out: 'reports' # حدد مكان المجلد عشان الـ Upload يشتغل صح
           args: >
             --enableExperimental
 
-      - name: Publish OWASP Dependency Check report
+      - name: Publish OWASP Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: owasp-dependency-check-report
+          name: owasp-report
           path: reports/
       
       - name: Build
         run: dotnet build ./Project/Q-Prep.sln --configuration Release --no-restore
 
-      - name: SonarQube Analysis
+      - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=Q-Prep
+            -Dsonar.projectKey=Q-Prep 
             -Dsonar.organization=soneratech
             -Dsonar.sources=./Project
             -Dsonar.host.url=https://sonarcloud.io
-
-
-
-
-
-
-
+            -Dsonar.dotnet.excludeTestProjects=true

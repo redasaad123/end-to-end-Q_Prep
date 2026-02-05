@@ -50,7 +50,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=end-to-end-Q_Prep
+            -Dsonar.projectKey=redasaad123_end-to-end-Q_Prep
             -Dsonar.organization=redasaad123
             -Dsonar.sources=./Project
             -Dsonar.host.url=https://sonarcloud.io

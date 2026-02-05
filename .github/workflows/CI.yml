@@ -50,8 +50,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=Q-Prep 
-            -Dsonar.organization=soneratech
+            -Dsonar.projectKey=end-to-end-Q-prep 
+            -Dsonar.organization=redasaad123
             -Dsonar.sources=./Project
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.dotnet.excludeTestProjects=true

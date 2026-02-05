@@ -26,14 +26,13 @@ jobs:
         run: dotnet restore Q-Prep.sln
 
       - name: OWASP Dependency Check
-        uses: jeremylong/DependencyCheck_Action@main
+        uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'Q-Prep'
           path: '.'
           format: 'XML'
           args: >
             --enableExperimental
-            --scan Q-Prep.sln
 
       - name: Publish OWASP Dependency Check report
         uses: actions/upload-artifact@v4

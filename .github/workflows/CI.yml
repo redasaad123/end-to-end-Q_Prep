@@ -72,7 +72,7 @@ jobs:
       
       - name: build images
         run: |
-          docker build -t q-prep:latest -f ./Project/Dockerfile .
+          docker build -t q-prep:latest -f ./Project/Dockerfile ./Project
 
       - name: push images to Docker Hub
         run: |

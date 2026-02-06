@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: q-prep
-        image: redasaad123/q_prep:latest
+        image: redasaad123/q-prep:latest
         volumeMounts:
           - name: q-prep-volume
             mountPath: /app/wwwroot

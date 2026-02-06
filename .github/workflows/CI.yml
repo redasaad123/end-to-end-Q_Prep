@@ -4,6 +4,9 @@ name: CI Pipeline
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'Project/**'
+      - '.github/workflows/CI.yml'
   workflow_dispatch:
 
 jobs:
@@ -80,4 +83,10 @@ jobs:
           docker tag q-prep:latest ${{ secrets.DOCKER_USERNAME }}/q-prep:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/q-prep:latest
           
+      - name: Trigger CD Workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: CI-completed
           

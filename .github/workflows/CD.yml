@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Deploy Project to Azure App Service
+
+on:
+  repository_dispatch:
+    types: [CI-completed]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      IP_Master: ${{ secrets.IP_MASTER }}
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ env.IP_Master }} >> ~/.ssh/known_hosts
+
+      - name: Wait for SSH
+        timeout-minutes: 5
+        run: |
+          MAX_RETRIES=60
+          RETRY_COUNT=0
+          until ssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 -q ubuntu@${{ env.IP_Master }} exit; do
+            echo "Waiting for SSH to be available..."
+            sleep 5
+            RETRY_COUNT=$((RETRY_COUNT + 1))
+            if [ $RETRY_COUNT -ge $MAX_RETRIES ]; then
+              echo "❌ SSH connection timeout after $((MAX_RETRIES * 5)) seconds"
+              exit 1
+            fi
+          done
+          echo "✅ SSH connection established"
+
+      - name: Deploy to Master Server
+        run: |
+          scp -i ~/.ssh/id_rsa Devops/K8s/main.yml ubuntu@${{ env.IP_Master }}:/home/ubuntu/k8s-main.yml
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl apply -f /home/ubuntu/k8s-main.yml"
+
+            
+
+

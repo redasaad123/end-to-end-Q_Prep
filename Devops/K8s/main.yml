@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Q_Prep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: Q_Prep
+  template:
+    metadata:
+      labels:
+        app: Q_Prep
+    spec:
+      containers:
+      - name: Q_Prep
+        image: redasaad123/q_prep:latest
+        volumeMounts:
+          - name: q-prep-volume
+            mountPath: /app/wwwroot
+        ports:
+        - containerPort: 8080
+
+      volumes:
+        - name: q-prep-volume
+          persistentVolumeClaim:
+            claimName: q-prep-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: q-prep-service
+spec:
+  type: NodePort
+  selector:
+    app: Q_Prep
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 8080
+      nodePort: 30007
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: q-prep-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: q-prep.duckdns.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: q-prep-service
+            port:
+              number: 5000
+
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: q-prep-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi  
+
+

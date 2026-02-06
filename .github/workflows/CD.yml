@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-name: Deploy Project to Azure App Service
+name: Deploy Project 
 
 on:
   repository_dispatch:
@@ -18,10 +18,15 @@ jobs:
 
       - name: Setup SSH Key
         run: |
+          if [ -z "${{ env.IP_Master }}" ]; then
+            echo "Missing IP_MASTER secret"
+            exit 1
+          fi
           mkdir -p ~/.ssh
+          touch ~/.ssh/known_hosts
           echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ env.IP_Master }} >> ~/.ssh/known_hosts
+          ssh-keyscan -T 5 -H ${{ env.IP_Master }} >> ~/.ssh/known_hosts || true
 
       - name: Wait for SSH
         timeout-minutes: 5

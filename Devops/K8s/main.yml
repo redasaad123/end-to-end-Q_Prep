@@ -67,13 +67,13 @@ metadata:
   name: q-prep-pv
 spec:
   capacity:
-    storage: 5Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: manual
   hostPath:
-    path: ~/q-prep
+    path: /tmp/q-prep
 
 ---
 apiVersion: v1
@@ -81,11 +81,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: q-prep-pvc
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi  
-  storageClassName: manual
+      storage: 1Gi
 
 

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Q_Prep
+  name: q-prep
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: Q_Prep
+      app: q-prep
   template:
     metadata:
       labels:
-        app: Q_Prep
+        app: q-prep
     spec:
       containers:
-      - name: Q_Prep
+      - name: q-prep
         image: redasaad123/q_prep:latest
         volumeMounts:
           - name: q-prep-volume
@@ -34,7 +34,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: Q_Prep
+    app: q-prep
   ports:
     - protocol: TCP
       port: 5000

@@ -46,10 +46,10 @@ jobs:
 
       - name: Deploy to Master Server
         run: |
-          scp -i ~/.ssh/id_rsa Devops/K8s/main.yml ubuntu@${{ env.IP_MASTER }}:/home/ubuntu/k8s-main.yml
+          scp -i ~/.ssh/id_rsa Devops/K8s/main.yml ubuntu@${{ env.IP_Master }}:/home/ubuntu/k8s-main.yml
           ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl apply -f /home/ubuntu/k8s-main.yml"
-          kubectl describe pod q-prep-96879b9c8-4fr4r
-          kubectl describe pvc q-prep-pvc"
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl describe pod q-prep-96879b9c8-4fr4r"
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl describe pvc q-prep-pvc"
 
 
 

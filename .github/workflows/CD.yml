@@ -49,6 +49,7 @@ jobs:
           scp -i ~/.ssh/id_rsa Devops/K8s/main.yml ubuntu@${{ env.IP_Master }}:/home/ubuntu/k8s-main.yml
           ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl delete deployment q-prep --ignore-not-found=true"
           ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl delete pvc q-prep-pvc --ignore-not-found=true"
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl delete pv q-prep-pv --ignore-not-found=true"
           ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl apply -f /home/ubuntu/k8s-main.yml"
          
 

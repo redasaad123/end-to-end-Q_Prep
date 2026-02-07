@@ -15,19 +15,19 @@ spec:
       containers:
       - name: q-prep
         image: redasaad123/q-prep:latest
-        # volumeMounts:
-        #   - name: q-prep-volume
-        #     mountPath: /app/wwwroot
+        volumeMounts:
+          - name: q-prep-volume
+            mountPath: /app/wwwroot
         ports:
         - containerPort: 8080
         env:
         - name: ASPNETCORE_URLS
           value: "http://0.0.0.0:8080"
 
-      # volumes:
-      #   - name: q-prep-volume
-      #     persistentVolumeClaim:
-      #       claimName: q-prep-pvc
+      volumes:
+        - name: q-prep-volume
+          persistentVolumeClaim:
+            claimName: q-prep-pvc
 
 ---
 apiVersion: v1
@@ -67,32 +67,32 @@ spec:
             name: q-prep-service
             port:
               number: 8080
-# ---
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#   name: q-prep-pv
-# spec:
-#   capacity:
-#     storage: 1Gi
-#   accessModes:
-#     - ReadWriteMany
-#   persistentVolumeReclaimPolicy: Retain
-#   storageClassName: manual
-#   hostPath:
-#     path: /home/ubuntu/q-prep
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: q-prep-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    path: /home/ubuntu/q-prep
 
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: q-prep-pvc
-# spec:
-#   storageClassName: manual
-#   accessModes:
-#     - ReadWriteMany
-#   resources:
-#     requests:
-#       storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: q-prep-pvc
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
 
 

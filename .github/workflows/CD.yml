@@ -72,18 +72,18 @@ jobs:
 
       - name: Clean up Pods
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} 
-          kubectl delete pods -l app=q-prep --ignore-not-found=true
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl delete deployment q-prep --ignore-not-found=true"
+          
+          
 
       - name: Apply secret manifest
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} 
-          kubectl apply -f /home/ubuntu/secret.yml
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl apply -f /home/ubuntu/secret.yml"
+          
        
       - name: Apply Kubernetes Manifest
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} 
-          kubectl apply -f /home/ubuntu/k8s-main.yml
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl apply -f /home/ubuntu/k8s-main.yml"
           
 
           

@@ -1,3 +1,21 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: q-prep-config
+data:
+  ASPNETCORE_URLS: "http://0.0.0.0:8080"
+  EMAIL_HOST: "smtp.gmail.com"
+  EMAIL_PORT: "587"
+  EMAIL_ADDRESS: "redasaad010260@gmail.com"
+  jwt-audience: "https://localhost:7243/"
+  jwt-issuer: "https://localhost:7243/"  
+  jwt-expire: "2" 
+
+
+  
+  
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,8 +40,65 @@ spec:
         - containerPort: 8080
         env:
         - name: ASPNETCORE_URLS
-          value: "http://0.0.0.0:8080"
+          valueFrom:
+            configMapKeyRef:
+              name: q-prep-config
+              key: ASPNETCORE_URLS
 
+        - name: email-confg__Host
+          valueFrom:
+            configMapKeyRef:
+              name: q-prep-config
+              key: EMAIL_HOST
+
+        - name: email-confg__Port
+          valueFrom:
+            configMapKeyRef:
+              name: q-prep-config
+              key: EMAIL_PORT
+            
+        - name: email-confg__Email
+          valueFrom:
+            configMapKeyRef:
+              name: q-prep-config
+              key: EMAIL_ADDRESS
+            
+        - name: email-confg__Password
+          valueFrom:
+            secretKeyRef:
+              name: q-prep-secret
+              key: EMAIL_PASSWORD
+
+        - name: ConnectionStrings__ProdcutionConnection
+          valueFrom:
+            secretKeyRef:
+              name: q-prep-secret
+              key: ConnectionStrings
+
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: q-prep-secret
+              key: JWT_SECRET
+        
+        - name: jwt__AUDIENCE
+          valueFrom:
+            configMapKeyRef:
+              name: q-prep-config
+              key: jwt-audience
+
+        - name: jwt__ISSUER
+          valueFrom:
+            configMapKeyRef:
+              name: q-prep-config
+              key: jwt-issuer
+
+        - name: jwt__DurationInDays
+          valueFrom:
+            configMapKeyRef:
+              name: q-prep-config
+              key: jwt-expire
+        
       volumes:
         - name: q-prep-volume
           persistentVolumeClaim:

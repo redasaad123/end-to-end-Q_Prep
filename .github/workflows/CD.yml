@@ -47,7 +47,7 @@ jobs:
 
       - name: Create Kubernetes Secret
         run: |
-          cat <<EOF > secret.yml
+          cat <<EOF > Devops/K8s/secret.yml
           apiVersion: v1
           kind: Secret
           metadata: 

@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ProjectAPI.Extensions;
 using ProjectAPI.Hubs;
 using System;
 using System.Text;
@@ -31,12 +32,47 @@ namespace ProjectAPI
 
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
-                var conn = builder.Configuration.GetConnectionString("ProdcutionConnection");
-                if (string.IsNullOrEmpty(conn))
-                    throw new InvalidOperationException("Connection string 'ProdcutionConnection' is missing!");
+                var primaryConnection = builder.Configuration.GetConnectionString("ProductionConnection");
+                var fallbackConnection = builder.Configuration.GetConnectionString("FallbackConnection");
+                
+                // Determine which connection string to use
+                string connectionToUse = primaryConnection;
+                
+                if (string.IsNullOrEmpty(primaryConnection))
+                {
+                    Console.WriteLine("⚠️ Primary connection string 'ProductionConnection' is missing!");
+                    
+                    if (!string.IsNullOrEmpty(fallbackConnection))
+                    {
+                        Console.WriteLine("🔄 Using fallback connection string...");
+                        connectionToUse = fallbackConnection;
+                    }
+                    else
+                    {
+                        // Create a default LocalDB connection if both are missing
+                        connectionToUse = "Server=(localdb)\\mssqllocaldb;Database=QPrep_Emergency;Trusted_Connection=true;MultipleActiveResultSets=true";
+                        Console.WriteLine("🚨 Using emergency LocalDB connection...");
+                    }
+                }
 
-                options.UseSqlServer(conn,
-                    options => options.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName));
+                Console.WriteLine($"📊 Database connection: {connectionToUse[..Math.Min(50, connectionToUse.Length)]}...");
+
+                options.UseSqlServer(connectionToUse, sqlOptions =>
+                {
+                    sqlOptions.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName);
+                    sqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 3,
+                        maxRetryDelay: TimeSpan.FromSeconds(5),
+                        errorNumbersToAdd: null);
+                    sqlOptions.CommandTimeout(30);
+                });
+
+                // Enable detailed error logging in development
+                if (builder.Environment.IsDevelopment())
+                {
+                    options.EnableSensitiveDataLogging();
+                    options.EnableDetailedErrors();
+                }
             });
 
             // Fix for ASP0025: Use AddAuthorizationBuilder to register authorization services and construct policies
@@ -152,6 +188,10 @@ namespace ProjectAPI
             });
 
             var app = builder.Build();
+            
+            // Initialize database with proper error handling
+            await app.InitializeDatabaseAsync();
+            
             app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI();

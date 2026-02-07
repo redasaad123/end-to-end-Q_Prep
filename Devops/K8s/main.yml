@@ -69,7 +69,7 @@ spec:
               name: q-prep-secret
               key: EMAIL_PASSWORD
 
-        - name: ConnectionStrings__ProdcutionConnection
+        - name: ConnectionStrings__ProductionConnection
           valueFrom:
             secretKeyRef:
               name: q-prep-secret

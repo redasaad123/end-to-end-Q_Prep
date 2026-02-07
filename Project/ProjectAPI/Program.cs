@@ -17,7 +17,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ProjectAPI.Extensions;
 using ProjectAPI.Hubs;
-using ProjectAPI.Middleware;
 using System;
 using System.Text;
 
@@ -195,9 +194,6 @@ namespace ProjectAPI
             logger.LogInformation("🚀 Starting Q-Prep Application...");
             logger.LogInformation("📍 Environment: {Environment}", app.Environment.EnvironmentName);
             logger.LogInformation("🔧 Configuring middleware pipeline...");
-            
-            // Add exception handling middleware first
-            app.UseDatabaseExceptionHandling();
             
             // Initialize database with proper error handling (non-blocking)
             logger.LogInformation("🔄 Starting background database initialization...");

@@ -47,7 +47,7 @@ jobs:
 
       - name: Create Kubernetes Secret
         run: |
-          cat <<EOF > main.yml
+          cat <<EOF > secret.yml
           apiVersion: v1
           kind: Secret
           metadata: 
@@ -58,14 +58,35 @@ jobs:
             ConnectionStrings: "${{ secrets.DB_CONNECTION_STRING }}" 
             JWT_SECRET: "${{ secrets.JWT_SECRET }}"
           EOF
-        working-directory: ./Devops/K8s
-      - name: Deploy to Master Server
+        
+      - name: Move the file to Master Server
         run: |
           scp -i ~/.ssh/id_rsa Devops/K8s/main.yml ubuntu@${{ env.IP_Master }}:/home/ubuntu/k8s-main.yml
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl delete deployment q-prep --ignore-not-found=true"
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl delete pvc q-prep-pvc --ignore-not-found=true"
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl delete pv q-prep-pv --ignore-not-found=true"
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} "kubectl apply -f /home/ubuntu/k8s-main.yml"
+          scp -i ~/.ssh/id_rsa Devops/K8s/secret.yml ubuntu@${{ env.IP_Master }}:/home/ubuntu/secret.yml
+
+      # - name: Clean up PV and PVC
+      #   run: |
+      #     ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} 
+      #     kubectl delete pvc q-prep-pvc --ignore-not-found=true
+      #     kubectl delete pv q-prep-pv --ignore-not-found=true
+
+      - name: Clean up Pods
+        run: |
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} 
+          kubectl delete pods -l app=q-prep --ignore-not-found=true
+
+      - name: Apply secret manifest
+        run: |
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} 
+          kubectl apply -f /home/ubuntu/secret.yml
+       
+      - name: Apply Kubernetes Manifest
+        run: |
+          ssh -i ~/.ssh/id_rsa ubuntu@${{ env.IP_Master }} 
+          kubectl apply -f /home/ubuntu/k8s-main.yml
+          
+
+          
          
 
 

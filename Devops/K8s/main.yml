@@ -57,7 +57,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: q-prep.duckdns.org
+  - host: qprep.duckdns.org
     http:
       paths:
       - path: /

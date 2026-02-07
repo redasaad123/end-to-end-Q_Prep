@@ -75,19 +75,19 @@ spec:
               name: q-prep-secret
               key: ConnectionStrings
 
-        - name: JWT_SECRET
+        - name: jwt__key
           valueFrom:
             secretKeyRef:
               name: q-prep-secret
               key: JWT_SECRET
         
-        - name: jwt__AUDIENCE
+        - name: jwt__Audience
           valueFrom:
             configMapKeyRef:
               name: q-prep-config
               key: jwt-audience
 
-        - name: jwt__ISSUER
+        - name: jwt__Issuer
           valueFrom:
             configMapKeyRef:
               name: q-prep-config

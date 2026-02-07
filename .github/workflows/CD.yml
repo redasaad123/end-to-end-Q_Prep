@@ -47,7 +47,7 @@ jobs:
 
       - name: Create Kubernetes Secret
         run: |
-          cat <<EOF > q-prep-secret.yml
+          cat <<EOF > main.yml
           apiVersion: v1
           kind: Secret
           metadata: 
@@ -57,9 +57,8 @@ jobs:
             EMAIL_PASSWORD: "${{ secrets.EMAIL_PASSWORD }}"
             ConnectionStrings: "${{ secrets.DB_CONNECTION_STRING }}" 
             JWT_SECRET: "${{ secrets.JWT_SECRET }}"
-          
-            
           EOF
+        working-directory: ./Devops/K8s
       - name: Deploy to Master Server
         run: |
           scp -i ~/.ssh/id_rsa Devops/K8s/main.yml ubuntu@${{ env.IP_Master }}:/home/ubuntu/k8s-main.yml

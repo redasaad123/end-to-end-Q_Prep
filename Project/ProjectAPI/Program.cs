@@ -17,6 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ProjectAPI.Extensions;
 using ProjectAPI.Hubs;
+using ProjectAPI.Middleware;
 using System;
 using System.Text;
 
@@ -24,7 +25,7 @@ namespace ProjectAPI
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -189,8 +190,16 @@ namespace ProjectAPI
 
             var app = builder.Build();
             
-            // Initialize database with proper error handling
-            await app.InitializeDatabaseAsync();
+            // Get logger for startup messages
+            var logger = app.Services.GetRequiredService<ILogger<Program>>();
+            logger.LogInformation("🚀 Starting Q-Prep Application...");
+            logger.LogInformation("📍 Environment: {Environment}", app.Environment.EnvironmentName);
+            
+            // Add exception handling middleware first
+            app.UseDatabaseExceptionHandling();
+            
+            // Initialize database with proper error handling (non-blocking)
+            app.InitializeDatabaseAsync();
             
             app.UseStaticFiles();
             app.UseSwagger();
@@ -201,6 +210,8 @@ namespace ProjectAPI
             app.UseAuthorization();
             app.MapHub<CommunityHub>("/communityHub");
             app.MapControllers();
+            
+            logger.LogInformation("✅ Q-Prep Application configured and ready to start");
             app.Run();
         }
     }

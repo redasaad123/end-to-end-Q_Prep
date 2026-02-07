@@ -20,6 +20,9 @@ spec:
         #     mountPath: /app/wwwroot
         ports:
         - containerPort: 8080
+        env:
+        - name: ASPNETCORE_URLS
+          value: "http://0.0.0.0:8080"
 
       # volumes:
       #   - name: q-prep-volume

@@ -194,13 +194,16 @@ namespace ProjectAPI
             var logger = app.Services.GetRequiredService<ILogger<Program>>();
             logger.LogInformation("🚀 Starting Q-Prep Application...");
             logger.LogInformation("📍 Environment: {Environment}", app.Environment.EnvironmentName);
+            logger.LogInformation("🔧 Configuring middleware pipeline...");
             
             // Add exception handling middleware first
             app.UseDatabaseExceptionHandling();
             
             // Initialize database with proper error handling (non-blocking)
+            logger.LogInformation("🔄 Starting background database initialization...");
             app.InitializeDatabaseAsync();
             
+            logger.LogInformation("🌐 Configuring web application...");
             app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI();
@@ -212,6 +215,12 @@ namespace ProjectAPI
             app.MapControllers();
             
             logger.LogInformation("✅ Q-Prep Application configured and ready to start");
+            logger.LogInformation("🌍 Application will be available on port 8080");
+            logger.LogInformation("📋 Health endpoints configured:");
+            logger.LogInformation("   - /api/health (general health)");
+            logger.LogInformation("   - /api/health/ready (readiness)");
+            logger.LogInformation("   - /api/health/live (liveness)");
+            
             app.Run();
         }
     }
